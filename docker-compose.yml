@@ -1,0 +1,22 @@
+version: '3.7'
+
+networks:
+  app-net:
+
+services:
+  app1:
+    container_name: app1
+    image: mrhat24/vm-net-test
+    restart: always
+    volumes:
+      - ./.env1:/app/.env
+    networks:
+      - app-net
+  app2:
+    container_name: app2
+    image: mrhat24/vm-net-test
+    restart: always
+    volumes:
+      - ./.env2:/app/.env
+    networks:
+      - app-net
